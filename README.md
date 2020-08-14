@@ -1,1 +1,1 @@
-# learning
+# learning the basics of pyhton
