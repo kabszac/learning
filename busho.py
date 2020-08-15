@@ -302,7 +302,8 @@ print(e)
 import json
 from urllib.request import urlopen
 
-# with urlopen("https://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote?format=json") as response:
+# with urlopen("https://finance.yahoo.com/webservice/v1/symbols/allcurrencies
+# /quote?format=json") as response:
 #     source = response.read()
 #
 # d = json.loads(source)
@@ -311,7 +312,8 @@ from urllib.request import urlopen
 # import json
 # from urllib.request import urlopen
 #
-# with urlopen("https://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote?format=json") as response:
+# with urlopen("https://finance.yahoo.com/webservice/v1/symbols/allcurrencies/
+# quote?format=json") as response:
 #     source = response.read()
 #
 # data = json.loads(source)
@@ -330,8 +332,8 @@ from urllib.request import urlopen
 
 # Big o notation
 # in big O notation you drop the costatnts
-#keep the fastest growing term
-#binary O(logn)
+# keep the fastest growing term
+# binary O(logn)
 # numbers = [3,6,2,4,3,6,8,9]
 # for i in range(len(numbers)):
 #     for j in range(i+1,len(numbers)):
@@ -340,14 +342,14 @@ from urllib.request import urlopen
 # #             break
 
 
-numbers = [3,6,2,4,3,6,8,9]
+numbers = [3, 6, 2, 4, 3, 6, 8, 9]
 duplicate = None
 for i in range(len(numbers)):
     if numbers[i] == duplicate:
         print(i)
 
-#Array exercise
-expense = [2200,2350,2600,2130,2190]
+# Array exercise
+expense = [2200, 2350, 2600, 2130, 2190]
 print(expense[1]-expense[0])
 total = 0
 # s = sum(expense[:3])
@@ -360,16 +362,20 @@ print(sum1)
 
 # in  linked list
 # you dont need to pre allocate space
-# insertion is easier 
+# insertion is easier
 # time complexity O(n)
 # inserting and deleting at the beginning O(1)
-#In linked list we have to classes: 1st class is class node which contains our head and pointer(next)
+# In linked list we have to classes: 1st class is class node which contains our
+# head and pointer(next)
 # the second class is the linked list itself which contains the head node.
+
 
 class Node:
     def __init__(self, data=None, next=None):
         self.data = data
         self.next = next
+
+
 class Linked_list:
     def __init__(self):
         self.head = None
@@ -391,9 +397,9 @@ class Linked_list:
         print(easy)
 
 
-    ll = Linked_list()
-    ll.insert_node(5)
-    ll.insert_node(6)
-    ll.insert_node(8)
-    ll.insert_node(9)
-    ll.print_linkedlist()
+ll = Linked_list()
+ll.insert_node(5)
+ll.insert_node(6)
+ll.insert_node(8)
+ll.insert_node(9)
+ll.print_linkedlist()
