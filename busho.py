@@ -308,22 +308,92 @@ from urllib.request import urlopen
 # d = json.loads(source)
 # print(d)
 
-import json
-from urllib.request import urlopen
+# import json
+# from urllib.request import urlopen
+#
+# with urlopen("https://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote?format=json") as response:
+#     source = response.read()
+#
+# data = json.loads(source)
+#
+# # print(json.dumps(data, indent=2))
+#
+# usd_rates = dict()
+#
+# for item in data['list']['resources']:
+#     name = item['resource']['fields']['name']
+#     price = item['resource']['fields']['price']
+#     usd_rates[name] = price
+#
+# print(usd_rates['USD/INR'])
 
-with urlopen("https://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote?format=json") as response:
-    source = response.read()
 
-data = json.loads(source)
+# Big o notation
+# in big O notation you drop the costatnts
+#keep the fastest growing term
+#binary O(logn)
+# numbers = [3,6,2,4,3,6,8,9]
+# for i in range(len(numbers)):
+#     for j in range(i+1,len(numbers)):
+#         if numbers[i] == numbers[j]:
+#             print(numbers[i])
+# #             break
 
-# print(json.dumps(data, indent=2))
 
-usd_rates = dict()
+numbers = [3,6,2,4,3,6,8,9]
+duplicate = None
+for i in range(len(numbers)):
+    if numbers[i] == duplicate:
+        print(i)
 
-for item in data['list']['resources']:
-    name = item['resource']['fields']['name']
-    price = item['resource']['fields']['price']
-    usd_rates[name] = price
+#Array exercise
+expense = [2200,2350,2600,2130,2190]
+print(expense[1]-expense[0])
+total = 0
+# s = sum(expense[:3])
+sum1 = 0
+for i in range(len(expense)):
+    if i == 3:
+        break
+    sum1 += expense[i]
+print(sum1)
 
-print(usd_rates['USD/INR'])
+# in  linked list
+# you dont need to pre allocate space
+# insertion is easier 
+# time complexity O(n)
+# inserting and deleting at the beginning O(1)
+#In linked list we have to classes: 1st class is class node which contains our head and pointer(next)
+# the second class is the linked list itself which contains the head node.
 
+class Node:
+    def __init__(self, data=None, next=None):
+        self.data = data
+        self.next = next
+class Linked_list:
+    def __init__(self):
+        self.head = None
+
+    def insert_node(self, data):
+        node = Node(data, self.head)
+        self.head = node
+
+    def print_linkedlist(self):
+        if self.head is None:
+            print("The linked list is empty")
+            return
+
+        head_node = self.head
+        easy = ""
+        while head_node:
+            easy = str(head_node.data) + "-->"
+            head_node = head_node.next
+        print(easy)
+
+
+    ll = Linked_list()
+    ll.insert_node(5)
+    ll.insert_node(6)
+    ll.insert_node(8)
+    ll.insert_node(9)
+    ll.print_linkedlist()
