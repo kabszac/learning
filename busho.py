@@ -380,7 +380,7 @@ class Linked_list:
     def __init__(self):
         self.head = None
 
-    def insert_node(self, data):
+    def insert_begining(self, data):
         node = Node(data, self.head)
         self.head = node
 
@@ -391,15 +391,96 @@ class Linked_list:
 
         head_node = self.head
         easy = ""
-        while head_node:
-            easy = str(head_node.data) + "-->"
+        while head_node != None:
+            easy += str(head_node.data) + "-->"
             head_node = head_node.next
         print(easy)
 
+    def insert_end(self,data):
+        if self.head is None:
+            self.head = Node(data,None)#iftheheadnodeisemptythenyouinsertattheen
+            return
+        current = self.head #if it is not empty
+        while current.next != None:
+            current = current.next
+# when it rreaches the last node you add the node
+        current.next = Node(data,None)
+
+#the next step is to insert values in a list
+    def insert_values(self,data_list):
+        self.head = None
+        for data in data_list:
+            self.insert_end(data)
+
+    def get_length(self):
+        count = 0
+        current = self.head
+        while current != None:
+            count += 1
+            current = current.next
+          
+        return count
+     
+    def delete_at(self, index):
+        if index < 0 or index >= self.get_length():
+            raise Exception ("The index is invalid")
+
+        if index == 0:
+            self.head = self.head.next
+            return
+
+        count = 0
+        current = self.head
+        while current != None:
+            if count == index-1:
+                current.next = current.next.next
+            current = current.next
+            count += 1
+
+    def insert_at(self,index, data):
+        if index < 0 or index >= self.get_length():
+            raise Exception ("The index is invalid.")
+
+        if index == 0:
+            self.insert_begining(data)
+
+        current = self.head
+        count = 0
+        while current != None:
+            if count == index-1:
+                node = Node(data, current.next)
+                current.next = node
+                break
+
+            current = current.next
+            count += 1
+
+
+
+
+
+
+
+
 
 ll = Linked_list()
-ll.insert_node(5)
-ll.insert_node(6)
-ll.insert_node(8)
-ll.insert_node(9)
+ll.insert_begining(5)
+ll.insert_begining(6)
+ll.insert_begining(8)
+ll.insert_begining(9)
 ll.print_linkedlist()
+
+gl = Linked_list()
+gl.insert_end(5)
+gl.insert_end(6)
+gl.insert_end(8)
+gl.insert_end(9)
+gl.print_linkedlist()
+
+il = Linked_list()
+il.insert_values(["esther", "Michael", "Isaac", "Ian"])
+il.insert_at(0, "Salome")
+il.insert_at(2, "Wamathai")
+# il.delete_at(2)
+il.print_linkedlist()
+print(" the length is ", il.get_length())

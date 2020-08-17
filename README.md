@@ -1,1 +1,1 @@
-# learning the basics of pyhton
+# learning the basics of python
